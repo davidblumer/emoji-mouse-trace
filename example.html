@@ -1,17 +1,34 @@
 <!doctype <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
+    <div id="container" style="z-index: 1338; position: absolute;">
+        <label for="traceLength">
+            traceLength
+            <input type="number" id="traceLength" value="20">
+        </label>
+        <label for="fadeOut">
+            fadeOut
+            <input type="checkbox" id="fadeOut" value="true">
+        </label>
+        <label for="fontSize">
+            fontSize
+            <input type="range" min="5" max="50" id="fontSize" value="30">
+        </label>
+        <label for="emojis">
+            emojis
+            <input type="text" id="emojis" value="🤣">
+        </label>
+    </div>
     <script src="index.js"></script>
-    <script>emojiMouseTrace({
-        'traceLength': 20,
-        'fadeOut': true,
-        'emojis': ['🤣']
-      });</script>
+    <script src="example.js"></script>
 </body>
+
 </html>

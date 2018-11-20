@@ -122,4 +122,9 @@ function emojiMouseTrace(customConfig) {
             }
         }, 20)
     }
+
+    function disable() {
+        clear();
+        document.removeEventListener('mousemove');
+    }
 }

@@ -2,6 +2,8 @@
 
 Trace mouse movement with a trail of emojis or images.
 
+[![License MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
+[![Gzip Size](https://img.badgesize.io/https://unpkg.com/emoji-mouse-trace@1.0.0/index.js?compression=gzip)](https://unpkg.com/emoji-mouse-trace@1.0.0/index.js)
 ## Getting started 🚀
 Install the module via npm
 ```
@@ -12,7 +14,7 @@ Call the emojiMouseTrace function within your template or js
 emojiMouseTrace()
 ```
 
-## Optional Parameters
+## API
 | Parameter        | value | default |
 | ------------- |:-------------:|:-------------:|
 | traceLength      | int | 20 |

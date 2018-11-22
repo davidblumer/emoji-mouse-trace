@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "keywords": ["emoji", "emoticon", "mouse", "trace", "browser"]
+  "keywords": ["emoji", "emoticon", "mouse", "trace", "browser"],
   "license": "MIT",
   "repository": {
     "type" : "git",

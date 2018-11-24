@@ -8,7 +8,7 @@ fontSize.addEventListener('change', updateValues);
 var emoji = new emojiMouseTrace({
   'traceLength': 20,
   'fadeOut': true,
-  'zIndex': 1337
+  'zIndex': 2
 });
 
 function updateValues() {

@@ -1,13 +1,5 @@
 function emojiMouseTrace(customConfig) {
     const canvas = document.createElement('canvas');
-    canvas.id = 'trace';
-    canvas.style.zIndex = '1337';
-    document.body.appendChild(canvas);
-    canvas.style.position = 'absolute';
-    canvas.style.top = 0;
-    canvas.style.right = 0;
-    canvas.style.bottom = 0;
-    canvas.style.left = 0;
 
     var decayTrail;
     const demo = [
@@ -27,14 +19,28 @@ function emojiMouseTrace(customConfig) {
         'mode': customConfig && customConfig.mode ? customConfig.mode : 'emoji',
         'fontFamily': customConfig && customConfig.fontFamily ? customConfig.fontFamily : 'Arial',
         'fontSize': customConfig && customConfig.fontSize ? customConfig.fontSize : '30px',
-        'emojis': customConfig && customConfig.emojis ? customConfig.emojis : emojis
+        'emojis': customConfig && customConfig.emojis ? customConfig.emojis : emojis,
+        'zIndex': customConfig && customConfig.zIndex ? customConfig.zIndex : 1,
+        'id': customConfig && customConfig.id ? customConfig.id : 'trace',
+        'threshold': customConfig && customConfig.threshold ? customConfig.threshold : 1,
     };
 
     const trace = [];
+
+    canvas.id = config.id;
+    document.body.appendChild(canvas);
     const ctx = canvas.getContext("2d");
     canvas.width = document.body.clientWidth;
     canvas.height = document.body.clientHeight;
+    canvas.style.position = 'absolute';
+    canvas.style.top = 0;
+    canvas.style.right = 0;
+    canvas.style.bottom = 0;
+    canvas.style.left = 0;
+    canvas.style.zIndex = config.zIndex;
+    document.body.style.cursor = customConfig && customConfig.threshold ? 'auto' : 'none';
 
+    window.addEventListener('resize', resize);
     document.addEventListener('mousemove', drawTrace);
 
     function createImages(images) {
@@ -45,18 +51,26 @@ function emojiMouseTrace(customConfig) {
         })
     }
 
+    function resize() {
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;     
+    }
+
+    var frames = 0;
 
     function drawTrace(event) {
+        frames++;
+        if (frames % config.threshold === 0) {
+            if(customConfig && !customConfig.threshold) {
+                clearTimeout(decayTrail);
+                decayTrail = setTimeout(decay, 25);
+            }
 
-        // Debounce
-        clearTimeout(decayTrail);
-        decayTrail = setTimeout(decay, 25);
-        document.body.style.cursor = 'none';
-
-        removeLastItemOfTrace();
-        addPositionToTrace(event);
-        clear();
-        draw();
+            removeLastItemOfTrace();
+            addPositionToTrace(event);
+            clear();
+            draw();
+        }
     }
 
     function removeLastItemOfTrace() {
@@ -129,7 +143,6 @@ function emojiMouseTrace(customConfig) {
     }
 
     return {
-    	disable: disable,
-        decay: decay
+        disable: disable
     }
 }

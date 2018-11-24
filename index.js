@@ -1,7 +1,6 @@
 function emojiMouseTrace(customConfig) {
     const canvas = document.createElement('canvas');
     canvas.id = 'trace';
-    canvas.style.zIndex = '1337';
     document.body.appendChild(canvas);
     canvas.style.position = 'absolute';
     canvas.style.top = 0;
@@ -27,13 +26,15 @@ function emojiMouseTrace(customConfig) {
         'mode': customConfig && customConfig.mode ? customConfig.mode : 'emoji',
         'fontFamily': customConfig && customConfig.fontFamily ? customConfig.fontFamily : 'Arial',
         'fontSize': customConfig && customConfig.fontSize ? customConfig.fontSize : '30px',
-        'emojis': customConfig && customConfig.emojis ? customConfig.emojis : emojis
+        'emojis': customConfig && customConfig.emojis ? customConfig.emojis : emojis,
+        'zIndex': customConfig && customConfig.zIndex ? customConfig.zIndex : 1
     };
 
     const trace = [];
     const ctx = canvas.getContext("2d");
     canvas.width = document.body.clientWidth;
     canvas.height = document.body.clientHeight;
+    canvas.style.zIndex = config.zIndex;
 
     document.addEventListener('mousemove', drawTrace);
 

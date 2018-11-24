@@ -11,7 +11,7 @@ var emoji = new emojiMouseTrace({
   'traceLength': 20,
   'fadeOut': true,
   'zIndex': 2,
-  'threshold': 10
+  'threshold': 1
 });
 
 function updateValues() {

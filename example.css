@@ -1,0 +1,78 @@
+body {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+h1 {
+  -webkit-animation: color-change 1s infinite;
+  animation: color-change 1s infinite;
+}
+
+#container {
+  background: #eee;
+  padding: 2em 3em;
+  margin-top: 1em;
+  z-index: 1338;
+  -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+#container label {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#container label input {
+  display: block;
+}
+
+@-webkit-keyframes color-change {
+  0% {
+    color: #20A39E;
+  }
+  25% {
+    color: #EF5B5B;
+  }
+  50% {
+    color: #FED766;
+  }
+  75% {
+    color: #FA8334;
+  }
+  100% {
+    color: #005377;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: #20A39E;
+  }
+  25% {
+    color: #EF5B5B;
+  }
+  50% {
+    color: #FED766;
+  }
+  75% {
+    color: #FA8334;
+  }
+  100% {
+    color: #005377;
+  }
+}
+/*# sourceMappingURL=example.css.map */

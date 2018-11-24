@@ -125,6 +125,11 @@ function emojiMouseTrace(customConfig) {
 
     function disable() {
         clear();
-        document.removeEventListener('mousemove');
+        document.removeEventListener('mousemove', drawTrace);
+    }
+
+    return {
+    	disable: disable,
+        decay: decay
     }
 }

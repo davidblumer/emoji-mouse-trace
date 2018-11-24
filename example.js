@@ -4,22 +4,18 @@ const fadeOut = document.getElementById('fadeOut');
 fadeOut.addEventListener('change', updateValues);
 const fontSize = document.getElementById('fontSize');
 fontSize.addEventListener('change', updateValues);
-const emojis = document.getElementById('emojis');
-emojis.addEventListener('change', updateValues);
 
-const emoji = new emojiMouseTrace({
-    'traceLength': 50,
-    'fadeOut': true,
-    //'emojis': ['🤣']
+var emoji = new emojiMouseTrace({
+  'traceLength': 20,
+  'fadeOut': true,
 });
 
 function updateValues() {
-    const config = {
-        'traceLength': traceLength.value,
-        'fadeOut': fadeOut.value,
-        'fontSize': fontSize.value,
-        'emojis': emojis.value
-    }
-
-    emoji.disable();
+  const config = {
+    'traceLength': traceLength.value,
+    'fadeOut': fadeOut.checked,
+    'fontSize': fontSize.value + 'px'
+  }
+  emoji.disable();
+  emoji = new emojiMouseTrace(config);
 }

@@ -1,12 +1,5 @@
 function emojiMouseTrace(customConfig) {
     const canvas = document.createElement('canvas');
-    canvas.id = 'trace';
-    document.body.appendChild(canvas);
-    canvas.style.position = 'absolute';
-    canvas.style.top = 0;
-    canvas.style.right = 0;
-    canvas.style.bottom = 0;
-    canvas.style.left = 0;
 
     var decayTrail;
     const demo = [
@@ -27,13 +20,22 @@ function emojiMouseTrace(customConfig) {
         'fontFamily': customConfig && customConfig.fontFamily ? customConfig.fontFamily : 'Arial',
         'fontSize': customConfig && customConfig.fontSize ? customConfig.fontSize : '30px',
         'emojis': customConfig && customConfig.emojis ? customConfig.emojis : emojis,
-        'zIndex': customConfig && customConfig.zIndex ? customConfig.zIndex : 1
+        'zIndex': customConfig && customConfig.zIndex ? customConfig.zIndex : 1,
+        'id': customConfig && customConfig.id ? customConfig.id : 'trace'
     };
 
     const trace = [];
+
+    canvas.id = config.id;
+    document.body.appendChild(canvas);
     const ctx = canvas.getContext("2d");
     canvas.width = document.body.clientWidth;
     canvas.height = document.body.clientHeight;
+    canvas.style.position = 'absolute';
+    canvas.style.top = 0;
+    canvas.style.right = 0;
+    canvas.style.bottom = 0;
+    canvas.style.left = 0;
     canvas.style.zIndex = config.zIndex;
 
     document.addEventListener('mousemove', drawTrace);

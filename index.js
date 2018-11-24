@@ -38,7 +38,7 @@ function emojiMouseTrace(customConfig) {
     canvas.style.bottom = 0;
     canvas.style.left = 0;
     canvas.style.zIndex = config.zIndex;
-    document.body.style.cursor = customConfig && customConfig.threshold ? 'auto' : 'none';
+    document.body.style.cursor = config.threshold > 1 ? 'auto' : 'none';
 
     window.addEventListener('resize', resize);
     document.addEventListener('mousemove', drawTrace);
@@ -61,7 +61,7 @@ function emojiMouseTrace(customConfig) {
     function drawTrace(event) {
         frames++;
         if (frames % config.threshold === 0) {
-            if(customConfig && !customConfig.threshold) {
+            if(config.threshold > 1) {
                 clearTimeout(decayTrail);
                 decayTrail = setTimeout(decay, 25);
             }

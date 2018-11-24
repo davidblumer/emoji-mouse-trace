@@ -8,13 +8,14 @@ fontSize.addEventListener('change', updateValues);
 var emoji = new emojiMouseTrace({
   'traceLength': 20,
   'fadeOut': true,
+  'zIndex': 1337
 });
 
 function updateValues() {
   const config = {
     'traceLength': traceLength.value,
     'fadeOut': fadeOut.checked,
-    'fontSize': fontSize.value + 'px'
+    'fontSize': fontSize.value + 'px',
   }
   emoji.disable();
   emoji = new emojiMouseTrace(config);
